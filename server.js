@@ -16,5 +16,5 @@ app.use('/queries', queriesRouter);
 
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${process.env.PORT}`);
 });
