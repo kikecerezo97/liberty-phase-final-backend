@@ -47,7 +47,11 @@ newsRouter.get('/', async (req, res) => {
 });
 
 newsRouter.post('/', async (req, res) => {
-    res.status(200).send("POST called");
+    let query = req.body;
+    let queryObjectWithApiKey = addApiKey(query);
+    let url = createUrlFromQueryObject(queryObjectWithApiKey);
+    let newsArticles = await fetchData(url);
+    res.send(newsArticles);
 });
 
 
